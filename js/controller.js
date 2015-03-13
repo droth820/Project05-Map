@@ -55,7 +55,7 @@ function viewModel() {
 	function getVenues() {
 	$.ajax({
 	  	type: "GET",
-	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=AZWA4SWMCZ4T4E3RHWVLUR1FH1I3A3CRXDKWVVQG3HKJHQY5&client_secret=2IK13QP35FXW1VZOX0AGUR1PARR044TKYHPFCULKTGABTZRR&v=20130619&query="+$("#query").val()+"",
+	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
 	  	success: function(data) {
 			$("#venues").show();
 			var dataobj = data.response.groups[0].items;
