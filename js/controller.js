@@ -21,10 +21,10 @@ function viewModel() {
 
 		$("#query").blur(function(){
 			if ($(this).val() == "") {
-				$(this).val("Example: McDonalds");
+				$(this).val("Example: Ninja Japanese Restaurant");
 			}
 		
-			if ($(this).val() != "Example: McDonalds") {
+			if ($(this).val() != "Example: Ninja Japanese Restaurant") {
 				$(this).addClass("focus");
 			} else {
 				$(this).removeClass("focus");
@@ -64,7 +64,7 @@ function viewModel() {
 			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
-				center: new google.maps.LatLng(33.306349, -111.839305),
+				center: new google.maps.LatLng(33.340053, -111.859627),
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				panControl: true,
 				zoomControl: true
@@ -119,7 +119,7 @@ function viewModel() {
 		$("#venues").hide();
 		var myOptions = {
 		zoom:11,
-		center: new google.maps.LatLng(33.306349, -111.839305),
+		center: new google.maps.LatLng(33.340053, -111.859627),
 		mapTypeId: google.maps.MapTypeId.Hybrid,
 		panControl: true,
 		zoomControl: true,
