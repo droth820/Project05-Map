@@ -50,13 +50,17 @@
 
     <div class="row">
       <div class="large-8 columns">
-        <div id="venuewrapper">
-         <div id="venues" data-bind="text: searchVenue"></div>
-        </div>
         <div class="mapDiv">
           <div id="map" data-bind="attr: viewModel"></div> 
         </div>
-      </div>   
+      </div>
+      <aside class="large-4 columns">
+        <div class="panel">
+          <div id="venuewrapper">
+          <div id="venues" data-bind="text: searchVenue"></div>
+        </div>
+        </div>
+      </aside>   
     </div>
   <script>
       (function(d, s, id) {
