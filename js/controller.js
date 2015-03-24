@@ -64,12 +64,12 @@ function viewModel() {
 			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
-				center: new google.maps.LatLng(33.340053, -111.859627),
+				center: new google.maps.LatLng(60, 105),
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				panControl: true,
 				zoomControl: true
 			},
-			map = new google.maps.Map(document.getElementById('map'), myOptions);
+			map = new google.maps.Map(document.getElementById('#map'), myOptions);
 				
 			// Build markers and elements for venues returned.
 			$.each( dataobj, function() {	
@@ -119,13 +119,13 @@ function viewModel() {
 		$("#venues").hide();
 		var myOptions = {
 		zoom:11,
-		center: new google.maps.LatLng(33.340053, -111.859627),
+		center: new google.maps.LatLng(60, 105),
 		mapTypeId: google.maps.MapTypeId.Hybrid,
 		panControl: true,
 		zoomControl: true,
 		tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 		},
-	map = new google.maps.Map(document.getElementById('map'), myOptions);
+	map = new google.maps.Map(document.getElementById('#map'), myOptions);
 	}
 	
 	//Build the map and get things going
