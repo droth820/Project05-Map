@@ -28,9 +28,9 @@ html { overflow-y: scroll; }
 }
 
 .venue {
-	margin-bottom:20px;
+	margin-bottom:5px;
 	border:solid 1px #ccc;
-	padding:20px;
+	padding:5px;
 }
 
 .venue .icon {
