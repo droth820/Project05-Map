@@ -11,6 +11,7 @@ img { border: 0px; font-family: "Helvetica Neue", Helvetica, arial, sans-serif;}
 /* Force the vertical scrollbar in FF */
 body {
 	background-color: #CCCC99;
+	height: 100%;
 }
 html { overflow-y: scroll; }
 
@@ -23,11 +24,6 @@ html { overflow-y: scroll; }
 	text-align: center;
 	font-size: 32px;
 	color: #000000;
-}
-
-.row {
-	max-width: 1200px;
-	width: 100%;
 }
 
 .venue {
@@ -62,7 +58,7 @@ html { overflow-y: scroll; }
 	border:solid 1px #ccc;
 	font-size:18px;
 	color:#ccc;
-	width: 25%;
+	width: 50%;
 }
 
 #query.focus, #query:focus {
@@ -125,12 +121,11 @@ html { overflow-y: scroll; }
 }
 
 #mapcontainer {
-	width: 100%;
-	height: 700px;
+	/*width: 100%;
+	height: 800px;*/
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 0;
 }
 
 #map {
