@@ -44,50 +44,19 @@
             <input type="submit" name="submit" id="submit" value="Submit">
           </form>
  
-        <h3><a href="#">Blog Post Title</a></h3>
-        <h6>Written by <a href="#">John Smith</a> on August 12, 2012.</h6>
- 
+        <h3><a href="#">Event Map</a></h3>
         <div class="row">
           <div class="large-12 columns">
             <div id="venuewrapper">
              <div id="venues" data-bind="text: searchVenue"></div>
             </div>
-            <div id="mapcontainer" data-bind="attr: viewModel">
+            <div class="mapDiv">
+            <div id="map" data-bind="attr: viewModel"></div> 
             </div>
- 
       </article>
- 
       <hr/>
- 
-    </div>
-   
- 
-     
+    </div>   
   </div>
- 
-   
- 
- 
-   
- 
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr/>
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script>
       (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
