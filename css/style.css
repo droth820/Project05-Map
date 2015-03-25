@@ -102,13 +102,13 @@ html { overflow-y: scroll; }
 	box-shadow: 10px 5px 10px 5px #003333;
 }
 
-#content {
+/*#content {
 	height:auto;
 	margin-bottom:40px;
 	margin-top:20px;
 	position:relative;
 	height:800px;
-}
+}*/
 
 .mapDiv {
 	width: 100%;
@@ -124,38 +124,11 @@ html { overflow-y: scroll; }
 	display: block;
 	top:0;
 	width: 100%;
-	height: 65%;
+	height: 75%;
 	-webkit-box-shadow: 10px 5px 10px 5px #003333;
 	box-shadow: 10px 5px 10px 5px #003333;
 }
 
-@media only screen and (max-width: 1024px) {
-	.mapDiv {
-		width: 100%;
-		min-height: 25%;
-	}
-}
-
-@media only screen and (max-width: 900px) {
-	.mapDiv {
-		width: 100%;
-		min-height: 25%;
-	}
-}
-
-@media only screen and (max-width: 750px) {
-	.mapDiv {
-		width: 100%;
-		min-height: 25%;
-	}
-}
-
-@media only screen and (max-width: 1024px) {
-	.mapDiv {
-		width: 100%;
-		min-height: 25%;
-	}
-}
 
 
 
