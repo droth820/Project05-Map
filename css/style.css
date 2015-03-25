@@ -59,7 +59,7 @@ html { overflow-y: scroll; }
 }
 
 #venues {
-	position:relative;
+	/*position:relative;*/
 	z-index:100;
 	height:500px;
 	width:30%;
@@ -107,7 +107,7 @@ html { overflow-y: scroll; }
 }
 
 .mapDiv {
-	width: 70%;
+	width: 60%;
 	height: 600px;*/
 	position: absolute;
 	top: 0;
