@@ -66,6 +66,7 @@ html { overflow-y: scroll; }
 	width:30%;
 	overflow-y:auto;
 	top:0;
+	left: 0px;
 	background-color:#003366;
 	border-radius: 10px;
 	-webkit-box-shadow: 5px 5px 5px 5px #003333;
