@@ -129,31 +129,4 @@ html { overflow-y: scroll; }
 	box-shadow: 10px 5px 10px 5px #003333;
 }
 
-@media only screen and (max-width: 1024px) {
-	.mapDiv {
-		width: 100%;
-	}
-}
-
-@media only screen and (max-width: 900px) {
-	.mapDiv {
-		width: 100%;
-	}
-}
-
-@media only screen and (max-width: 750px) {
-	.mapDiv {
-		width: 100%;
-	}
-}
-
-
-
-
-
-
-
-
-
-
 
