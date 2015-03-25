@@ -64,7 +64,7 @@ html { overflow-y: scroll; }
 	height:500px;
 	width:30%;
 	overflow-y:auto;
-	top:1px;
+	top:30px;
 	background-color:#003366;
 	border-radius: 10px;
 }
