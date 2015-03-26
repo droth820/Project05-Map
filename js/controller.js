@@ -134,5 +134,13 @@ function viewModel() {
 	
 	//Build the map and get things going
 	mapbuild();
+
+	google.maps.event.addDomListener(window, "resize", function(){
+		var center = map.getCenter();
+		google.maps.event.trigger(map,"resize");
+		map.setCenter(center);
+	});
 }
+
+
 ko.applyBindings(viewModel);
