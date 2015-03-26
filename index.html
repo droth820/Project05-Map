@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neighborhood Map</title>
-  <!--<link rel="stylesheet" type="text/css" href="css/foundation.min.css">
-  <link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
   <style>
   html, body {
   height: 100%;
@@ -27,23 +25,23 @@
   <div class="row">
     <script>
       var cb = function() {
-        var l = document.createElement('link');
-        l.rel = 'stylesheet';
-        l.href = 'css/style.css';
-        var h = document.getElementsByTagName('head')[0];
-        h.parentNode.insertBefore(l,h);
-
-        var f = document.createElement('link');
-        f.rel = 'stylesheet';
-        f.href = 'css/normalize.min.css';
+        var a = document.createElement('link');
+        a.rel = 'stylesheet';
+        a.href = 'css/style.css';
         var insertA = document.getElementsByTagName('head')[0];
-        insertA.parentNode.insertBefore(f,insertA);
-  
-        var g = document.createElement('link');
-        g.rel = 'stylesheet';
-        g.href='css/foundation.min.css';
+        insertA.parentNode.insertBefore(a,insertA);
+
+        var b = document.createElement('link');
+        b.rel = 'stylesheet';
+        b.href = 'css/normalize.min.css';
         var insertB = document.getElementsByTagName('head')[0];
-        insertB.parentNode.insertBefore(g,insertB);
+        insertB.parentNode.insertBefore(b,insertB);
+  
+        var c = document.createElement('link');
+        c.rel = 'stylesheet';
+        c.href='css/foundation.min.css';
+        var insertC = document.getElementsByTagName('head')[0];
+        insertC.parentNode.insertBefore(c,insertC);
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
 
