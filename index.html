@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neighborhood Map</title>
-  <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
-  <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+  <!--<link rel="stylesheet" type="text/css" href="css/foundation.min.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
   <style>
   html, body {
   height: 100%;
@@ -32,6 +32,18 @@
         l.href = 'css/style.css';
         var h = document.getElementsByTagName('head')[0];
         h.parentNode.insertBefore(l,h);
+
+        var f = document.createElement('link');
+        f.rel = 'stylesheet';
+        f.href = 'css/normalize.min.css';
+        var insertA = document.getElementsByTagName('head')[0];
+        insertA.parentNode.insertBefore(f,insertA);
+  
+        var g = document.createElement('link');
+        g.rel = 'stylesheet';
+        g.href='css/foundation.min.css';
+        var insertB = document.getElementsByTagName('head')[0];
+        insertB.parentNode.insertBefore(g,insertB);
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
 
