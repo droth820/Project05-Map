@@ -8,12 +8,12 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; }
 img { border: 0px; font-family: "Helvetica Neue", Helvetica, arial, sans-serif;}
-/* Force the vertical scrollbar in FF */
+
 html, body {
 	height: 100%;
-	background-color: #CCCC99;
-	
+	background-color: #CCCC99;	
 }
+/* Force the vertical scrollbar in FF */
 html { overflow-y: scroll; }
 
 .clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
