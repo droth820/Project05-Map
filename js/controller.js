@@ -54,7 +54,7 @@ function viewModel() {
 	    var mapOptions = {
     		zoom: 6
   		};
-  		map = new google.maps.Map(document.getElementById('map-canvas'),
+  		map = new google.maps.Map(document.getElementById('#map'),
     		  mapOptions);
 
  		 // Try HTML5 geolocation
@@ -96,7 +96,7 @@ function viewModel() {
   var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 }
-	
+
 	//Connect with Foursquare database and set parameters for displaying retrieved information
 	function getVenues() {
 	$.ajax({
