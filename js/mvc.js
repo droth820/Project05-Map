@@ -85,7 +85,7 @@ function ViewModel(){
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
-			});
+			};
 		}
 	});
 }
