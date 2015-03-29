@@ -1,6 +1,15 @@
 function ViewModel(){
 	var self = this;
 	this.map = ko.observable();
+	this.marker = ko.observable();
+	this.lat = "";
+    this.lng = "";
+	this.arguments = "";
+	this.str = "";
+	this.newstr = "";
+	this.phone = "";
+	this.rating = "";
+	this.address = "";
 	this.searchVenue = ko.observable();
 
 	function searchVenue(){
