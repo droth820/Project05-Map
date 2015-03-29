@@ -85,8 +85,9 @@ function ViewModel(){
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
-			};
+			}
 		}
 	});
 }
-}
+var viewModel = new ViewModel();
+ko.applyBindings(viewModel);
