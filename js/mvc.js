@@ -65,7 +65,7 @@ function ViewModel(){
 						phone: this.venue.contact.formattedPhone,
 						address: this.venue.location.address,
 						rating: this.venue.rating
-					};
+					}
 				]
 			};
 					
