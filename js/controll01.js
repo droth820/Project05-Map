@@ -4,13 +4,13 @@ function viewModel() {
 	this.marker = ko.observable();
 	this.lat = "";
     this.lng = "";
-	this.appendeddatahtml = "";
+	this.appendeddatahtml = ko.observable();
 	this.arguments = "";
 	this.str = "";
 	this.newstr = "";
-	this.phone = "";
-	this.rating = "";
-	this.address = "";
+	this.phone = ko.observable();
+	this.rating = ko.observable();
+	this.address = ko.observable();
 	this.searchVenue = ko.observable();
 
 
