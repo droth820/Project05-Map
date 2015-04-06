@@ -1,17 +1,16 @@
-function viewModel() {
-	var self = this;
-	this.map = ko.observable();
-	this.marker = ko.observable();
-	this.lat = "";
-    this.lng = "";
-	this.appendeddatahtml = ko.observable();
-	this.arguments = "";
-	this.str = "";
-	this.newstr = "";
-	this.phone = ko.observable();
-	this.rating = ko.observable();
-	this.address = ko.observable();
-	this.searchVenue = ko.observable();
+
+	map = "";
+	marker = "";
+	lat = "";
+    lng = "";
+	appendeddatahtml = "";
+	arguments = "";
+	str = "";
+	newstr = "";
+	phone = "";
+	rating = "";
+	address = "";
+	searchVenue = "";
 
 
 	//search venue based on user query
@@ -52,7 +51,31 @@ function viewModel() {
 	}
 
 	//Connect and retrieve data from Foursquare
-	function getVenues() {
+	function viewModel(){
+		var self = this;
+		self.venue = {
+			phone: ko.observable(),
+			address: ko.observable(),
+			rating: ko.observable()
+
+		};
+
+		self.validateAndSave = function(form) {
+			if (!$(form).validate()) return;
+			$.ajax({
+				type: "GET",
+	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
+	  	success: function(data) {
+			$("#venues").show();
+			var dataobj = data.response.groups[0].items;
+			$("#venues").html("");
+			}). success( self.successSave). error( self.errorSave);
+
+			self.successSave = function() { alert('Success!'); }; self.errorSave = function() { alert('Error!'); }; };
+
+
+		} 
+		/*function getVenues() {
 	$.ajax({
 	  	type: "GET",
 	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
@@ -111,9 +134,10 @@ function viewModel() {
 				});
 			}
 		});
+*/
 	}
-}
 ko.applyBindings(viewModel);
+	
 
 //Rebuild map to display markers retrieved from FS database
 	function mapbuild() {
