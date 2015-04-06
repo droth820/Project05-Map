@@ -13,7 +13,12 @@
 	searchVenue = "";
 
 
-	//search venue based on user query
+	
+
+	//Connect and retrieve data from Foursquare
+	function viewModel(){
+		var self = this;
+		//search venue based on user query
 	function searchVenue() {
 		$('#query').click(function() {
 			$(this).val('');
@@ -49,10 +54,6 @@
 		lng = location.coords.longitude;
 		getVenues();
 	}
-
-	//Connect and retrieve data from Foursquare
-	function viewModel(){
-		var self = this;
 		self.venue = {
 			phone: ko.observable(),
 			address: ko.observable(),
