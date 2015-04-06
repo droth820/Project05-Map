@@ -69,9 +69,10 @@
 			$("#venues").show();
 			var dataobj = data.response.groups[0].items;
 			$("#venues").html("");
-			}). success( self.successSave). error( self.errorSave);
+			}).success(self.successSave).error(self.errorSave);
 
-			self.successSave = function() { alert('Success!'); }; self.errorSave = function() { alert('Error!'); }; };
+			self.successSave = function() { alert('Success!'); };
+			self.errorSave = function() { alert('Error!'); }; };
 
 
 		} 
