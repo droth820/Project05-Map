@@ -116,12 +116,11 @@ function viewModel() {
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
-	var center: new google.maps.LatLng(33.340053, -111.859627);
 	function mapbuild() {
 		$("#venues").hide();
 		var myOptions = {
 		zoom:11,
-		//center: new google.maps.LatLng(33.340053, -111.859627),
+		center: new google.maps.LatLng(33.340053, -111.859627),
 		mapTypeId: google.maps.MapTypeId.Hybrid,
 		panControl: true,
 		zoomControl: true,
@@ -133,11 +132,12 @@ ko.applyBindings(viewModel);
 	//Build the map and get things going
 	mapbuild();
 
-	google.maps.event.addDomListener(window, "resize", function(){
+	/*google.maps.event.addDomListener(window, "resize", function(){
 		var center = map.getCenter();
 		google.maps.event.trigger(map,"resize");
 		map.setCenter(center);
 	});
+*/
 
 
 
