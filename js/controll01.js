@@ -116,6 +116,7 @@ function viewModel() {
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
+	var center: new google.maps.LatLng(33.340053, -111.859627)
 	function mapbuild() {
 		$("#venues").hide();
 		var myOptions = {
