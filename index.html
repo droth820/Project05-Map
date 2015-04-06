@@ -63,7 +63,9 @@
     <div class="row">
       <div class="large-12 columns">
         <div id="venuewrapper">
-         <div id="venues" data-bind="text: searchVenue"></div>
+          <!--ko foreach: venues -->
+         <div id="venues" data-bind="text: $data"></div>
+         <!-- /ko -->
         </div>
         <div class="mapDiv">
           <div id="map"></div> 
