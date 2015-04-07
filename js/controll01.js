@@ -54,12 +54,7 @@
 		lng = location.coords.longitude;
 		getVenues();
 	}
-		self.venue = {
-			phone: this.venue.formattedPhone.ko.observable(),
-			address: this.venue.location.address.ko.observable(),
-			rating: this.venue.rating.ko.observable()
-
-		};
+		
 
 		self.validateAndSave = function(form) {
 			if (! $(form).validate()) return; 
@@ -68,6 +63,10 @@
 				data: ko.toJS( self.venue),
 				type: 'POST',
 				contentType: 'application/ x-www-form-urlencoded'}).success(self.successSave).error(self.errorSave);
+				success: function(data) {
+					$("#venues").show();
+					var dataobj = data.response.groups[0].items;
+					$("#venues").html("");
 		};
 
 		// Rebuild the map using data.
@@ -79,7 +78,31 @@
 				zoomControl: true
 			},
 			map = new google.maps.Map(document.getElementById('map'), myOptions);
-			self.successSave = function() {
+			
+			// Build markers and elements for venues returned.
+			$.each( dataobj, function() {	
+				if (this.venue.contact.formattedPhone) {
+					phone = "Phone:"+this.venue.contact.formattedPhone;
+				} else {
+					phone = "";
+				}
+					
+				if (this.venue.location.address) {
+					address = '<p class="subinfo">'+this.venue.location.address+'<br>';
+				} else {
+					address = "";
+				}
+					
+				if (this.venue.rating) {
+					rating = '<span class="rating">'+this.venue.rating+'</span>';
+				}
+					
+				appendeddatahtml = '<div class="venue"><p><b><span>'+this.venue.name+'</b>'+rating+'</span></h2>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
+				$("#venues").append(appendeddatahtml);
+
+		};
+
+			self.successSave = function(data) {
 				$("#venues").show();
 				var dataobj = data.response.groups[0].items;
 				$("#venues").html("");
