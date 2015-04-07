@@ -55,20 +55,16 @@
 		getVenues();
 	}
 		
-
-		self.validateAndSave = function(form) {
-			if (! $(form).validate()) return; 
-			$. ajax({
-				url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
-				data: ko.toJS( self.venue),
-				type: 'POST',
-				success: function(data) {
-					$("#venues").show();
-					var dataobj = data.response.groups[0].items;
-					$("#venues").html("");
-		};
-
-		// Rebuild the map using data.
+	function getVenues() {
+		$.ajax({
+	  		type: "GET",
+	  		url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
+	  		success: function(data) {
+				$("#venues").show();
+				var dataobj = data.response.groups[0].items;
+				$("#venues").html("");
+				
+			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
 				center: new google.maps.LatLng(33.340053, -111.859627),
@@ -77,7 +73,7 @@
 				zoomControl: true
 			},
 			map = new google.maps.Map(document.getElementById('map'), myOptions);
-			
+				
 			// Build markers and elements for venues returned.
 			$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
@@ -98,19 +94,9 @@
 					
 				appendeddatahtml = '<div class="venue"><p><b><span>'+this.venue.name+'</b>'+rating+'</span></h2>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-
-		};
-
-			self.successSave = function(data) {
-				$("#venues").show();
-				var dataobj = data.response.groups[0].items;
-				$("#venues").html("");
-			};
-			self.errorSave = function() {
-				alert('Error!');
-			};
-
-			var markerImage = {
+					
+				// Build markers
+				var markerImage = {
 				url: 'images/ScopePin.png',
 				scaledSize: new google.maps.Size(24, 24),
 				origin: new google.maps.Point(0,0),
@@ -125,6 +111,12 @@
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
+				});
+			}
+		}
+	});
+}
+
 
 ko.applyBindings(viewModel);
 	
