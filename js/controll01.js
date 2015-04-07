@@ -55,7 +55,7 @@
 		getVenues();
 	}
 		self.venue = {
-			phone: this.venue.contact.formattedPhone.ko.observable(),
+			phone: this.venue.formattedPhone.ko.observable(),
 			address: this.venue.location.address.ko.observable(),
 			rating: this.venue.rating.ko.observable()
 
