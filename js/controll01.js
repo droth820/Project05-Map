@@ -62,7 +62,6 @@
 				url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
 				data: ko.toJS( self.venue),
 				type: 'POST',
-				contentType: 'application/ x-www-form-urlencoded'}).success(self.successSave).error(self.errorSave);
 				success: function(data) {
 					$("#venues").show();
 					var dataobj = data.response.groups[0].items;
