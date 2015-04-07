@@ -55,13 +55,54 @@
 		getVenues();
 	}
 		self.venue = {
-			phone: ko.observable(),
-			address: ko.observable(),
-			rating: ko.observable()
+			phone: this.venue.contact.formattedPhone.ko.observable(),
+			address: this.venue.location.address.ko.observable(),
+			rating: this.venue.rating.ko.observable()
 
 		};
 
-		self.validateAndSave = function(form) { if (! $(form). validate()) return; $. ajax({ url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"", data: ko.toJS( self.venue), type: 'POST', contentType: 'application/ x-www-form-urlencoded' }). success( self.successSave). error( self.errorSave); }; self.successSave = function() { alert('Success!'); }; self.errorSave = function() { alert('Error!'); };
+		self.validateAndSave = function(form) {
+			if (! $(form).validate()) return; 
+			$. ajax({
+				url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
+				data: ko.toJS( self.venue),
+				type: 'POST',
+				contentType: 'application/ x-www-form-urlencoded'}).success(self.successSave).error(self.errorSave);
+		};
+
+		// Rebuild the map using data.
+			var myOptions = {
+				zoom:11,
+				center: new google.maps.LatLng(33.340053, -111.859627),
+				mapTypeId: google.maps.MapTypeId.HYBRID,
+				panControl: true,
+				zoomControl: true
+			},
+			map = new google.maps.Map(document.getElementById('map'), myOptions);
+			self.successSave = function() {
+				$("#venues").show();
+				var dataobj = data.response.groups[0].items;
+				$("#venues").html("");
+			};
+			self.errorSave = function() {
+				alert('Error!');
+			};
+
+			var markerImage = {
+				url: 'images/ScopePin.png',
+				scaledSize: new google.maps.Size(24, 24),
+				origin: new google.maps.Point(0,0),
+				anchor: new google.maps.Point(24/2, 24)
+				},
+				markerOptions = {
+				map: map,
+				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+				title: this.venue.name,
+				animation: google.maps.Animation.DROP,
+				icon: markerImage,
+				optimized: false
+				},
+				marker = new google.maps.Marker(markerOptions)
 
 
 		/*function getVenues() {
