@@ -115,6 +115,7 @@
 			}
 	});
 }
+}
 
 
 ko.applyBindings(viewModel);
