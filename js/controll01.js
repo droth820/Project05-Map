@@ -19,34 +19,34 @@
 	function viewModel(){
 		var self = this;
 		//search venue based on user query
-	function searchVenue() {
-		$('#query').click(function() {
-			$(this).val('');
-		});
+		function searchVenue() {
+			$('#query').click(function() {
+				$(this).val('');
+			});
 
-		$('#query').blur(function(){
-			if($(this).val() = '') {
-				$(this).val('Example: Ninja Japanese Restaurant');
-			}
+			$('#query').blur(function(){
+				if($(this).val() = '') {
+					$(this).val('Example: Ninja Japanese Restaurant');
+				}
 
-			if($(this).val() != 'Example: Ninja Japanese Restaurant'){
-				$(this).addClass('focus');
-			} else{
-				$(this).removeClass('focus');
-			}
-		});
+				if($(this).val() != 'Example: Ninja Japanese Restaurant'){
+					$(this).addClass('focus');
+				} else{
+					$(this).removeClass('focus');
+				}
+			});
 
-		//Submit the search query
-		$('#searchForm').submit(function(event) {
-			event.preventDefault();
-			if(!lat) {
-				navigator.geolocation.getCurrentPosition(getLocation);
-			} else{
-				getVenues();
-			}
-		});
-	}
-	searchVenue();
+			//Submit the search query
+			$('#searchForm').submit(function(event) {
+				event.preventDefault();
+				if(!lat) {
+					navigator.geolocation.getCurrentPosition(getLocation);
+				} else{
+					getVenues();
+				}
+			});
+		}
+		searchVenue();
 
 	//Geolocation
 	function getLocation(location) {
@@ -113,7 +113,6 @@
 				marker = new google.maps.Marker(markerOptions)
 				});
 			}
-		}
 	});
 }
 
