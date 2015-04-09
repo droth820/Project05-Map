@@ -1,5 +1,6 @@
 function ViewModel(){
 	var self = this;
+	self.searchVenue() = ko.observable();
 	self.searchVenue(function() {
 		$('#query').click(function() {
 				$(this).val('');
