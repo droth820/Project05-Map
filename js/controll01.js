@@ -1,24 +1,4 @@
 
-	map = "";
-	marker = ko.observable();
-	lat = "";
-    lng = "";
-	appendeddatahtml = "";
-	arguments = "";
-	str = "";
-	newstr = "";
-	phone = ko.observable();
-	rating = ko.observable();
-	address = ko.observable();
-	searchVenue = ko.observable();
-
-
-	
-
-	//Connect and retrieve data from Foursquare
-	function viewModel(){
-		var self = this;
-		//search venue based on user query
 		function searchVenue() {
 			$('#query').click(function() {
 				$(this).val('');
@@ -115,10 +95,8 @@
 			}
 		});
 	}
-}
 
 
-ko.applyBindings(viewModel);
 	
 
 //Rebuild map to display markers retrieved from FS database
