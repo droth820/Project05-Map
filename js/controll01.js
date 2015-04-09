@@ -1,16 +1,16 @@
 
 	map = "";
-	marker = "";
+	marker = ko.observable();
 	lat = "";
     lng = "";
 	appendeddatahtml = "";
 	arguments = "";
 	str = "";
 	newstr = "";
-	phone = "";
-	rating = "";
-	address = "";
-	searchVenue = "";
+	phone = ko.observable();
+	rating = ko.observable();
+	address = ko.observable();
+	searchVenue = ko.observable();
 
 
 	
@@ -113,8 +113,8 @@
 				marker = new google.maps.Marker(markerOptions)
 				});
 			}
-	});
-}
+		});
+	}
 }
 
 
