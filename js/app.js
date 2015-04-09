@@ -89,7 +89,7 @@ function viewModel() {
 					rating = '<span class="rating">'+this.venue.rating+'</span>';
 				}
 					
-				appendeddatahtml = '<div class="venue"><h3><b><span>'+this.venue.name+'</b>'+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
+				appendeddatahtml = '<div class="venue"><h3<span>'+this.venue.name+ '</h3>'+rating+'</span>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
 					
 				// Build markers
