@@ -27,7 +27,7 @@ function ViewModel(){
 					getVenues();
 				}
 			});
-
+			return getVenues();
 	});
 		//Geolocation
 	function getLocation(location) {
