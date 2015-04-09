@@ -37,7 +37,7 @@ function ViewModel(){
 		getVenues();
 	}
 
-	function getVenues() {
+	self.getVenues = function() {
 		$.ajax({
 	  		type: "GET",
 	  		url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
