@@ -1,6 +1,7 @@
-
-		function searchVenue() {
-			$('#query').click(function() {
+function ViewModel(){
+	var self = this;
+	self.searchVenue(function() {
+		$('#query').click(function() {
 				$(this).val('');
 			});
 
@@ -25,16 +26,16 @@
 					getVenues();
 				}
 			});
-		}
-		searchVenue();
 
-	//Geolocation
+	});
+		searchVenue();
+		//Geolocation
 	function getLocation(location) {
 		lat = location.coords.latitude;
 		lng = location.coords.longitude;
 		getVenues();
 	}
-		
+
 	function getVenues() {
 		$.ajax({
 	  		type: "GET",
@@ -43,8 +44,8 @@
 				$("#venues").show();
 				var dataobj = data.response.groups[0].items;
 				$("#venues").html("");
-				
-			// Rebuild the map using data.
+
+				// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
 				center: new google.maps.LatLng(33.340053, -111.859627),
@@ -96,7 +97,9 @@
 		});
 	}
 
-
+}
+var viewModel = new ViewModel();
+ko.applyBindings(viewModel);
 	
 
 //Rebuild map to display markers retrieved from FS database
