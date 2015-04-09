@@ -61,24 +61,7 @@
         </div>
         <div class="mapDiv">
           <div id="map">
-            <script>
-              //Rebuild map to display markers retrieved from FS database
-              map = new google.maps.Map(document.getElementById('#map'), myOptions);
-              function mapbuild() {
-                $("#venues").hide();
-                var myOptions = {
-                zoom:11,
-                center: new google.maps.LatLng(33.340053, -111.859627),
-                mapTypeId: google.maps.MapTypeId.Hybrid,
-                panControl: true,
-                zoomControl: true,
-                tilt: 45 //Allow user to pan at 45 degree angle when in street view.
-                },
-              }
-  
-              //Build the map and get things going
-              mapbuild();
-            </script>
+            
           </div> 
         </div>
       </div>
