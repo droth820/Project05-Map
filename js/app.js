@@ -1,78 +1,65 @@
-function viewModel() {
-	var self = this;
-	this.map = ko.observable();
-	this.marker = ko.observable();
-	this.lat = "";
-    this.lng = "";
-	this.appendeddatahtml = "";
-	this.arguments = "";
-	this.str = "";
-	this.newstr = "";
-	this.phone = "";
-	this.rating = "";
-	this.address = "";
-	this.searchVenue = ko.observable();
+function searchVenue() {
+	$('#query').click(function(){
+		$(this).val("");
+	});
 
-	//Search for venue based on user query
-	function searchVenue(){
-		$("#query").click(function(){
-			$(this).val("");
-		});
-
-		$("#query").blur(function(){
-			if ($(this).val() == "") {
-				$(this).val("Example: Ninja Japanese Restaurant");
-			}
+	$('#query').blur(function(){
+		if ($(this).val() == "") {
+			$(this).val('Example: Ninja Japanese Restaurant');
+		}
 		
-			if ($(this).val() != "Example: Ninja Japanese Restaurant") {
-				$(this).addClass("focus");
-			} else {
-				$(this).removeClass("focus");
-			}
-		});
+		if ($(this).val() !='Example: Ninja Japanese Restaurant') {
+			$(this).addClass('focus');
+		} else {
+			$(this).removeClass('focus');
+		}
+	});
 
-		//Submit search query and call to getVenues
-		$("#searchform").submit(function(event){
-			event.preventDefault();
-			if (!lat) {
-				navigator.geolocation.getCurrentPosition(getLocation);
-			} else {
-				getVenues();
-			}		
-		});
+	$('#searchForm').submit(function(event) {
+		event.preventDefault();
+		if (!lat) {
+			navigator.geoLocation.getCurrentPosition(getLocation);
+		} else {
+			getVenues();
+		}
+	});
+}
 
-	}
-	searchVenue();
+function getLocation(location){
+	lat = location.coords.latitude;
+	lng = location.coords.longitude;
 
-	
-	//Sets user location for gathering venue information based on search query
-	function getLocation(location) {
-	    lat = location.coords.latitude;
-	    lng = location.coords.longitude;
-		getVenues();
-	}
-	//Connect with Foursquare database and set parameters for displaying retrieved information
-	function getVenues() {
-	$.ajax({
-	  	type: "GET",
-	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
-	  	success: function(data) {
-			$("#venues").show();
-			var dataobj = data.response.groups[0].items;
-			$("#venues").html("");
-				
-			// Rebuild the map using data.
-			var myOptions = {
-				zoom:11,
-				center: new google.maps.LatLng(33.340053, -111.859627),
-				mapTypeId: google.maps.MapTypeId.HYBRID,
-				panControl: true,
-				zoomControl: true
-			},
-			map = new google.maps.Map(document.getElementById('map'), myOptions);
-				
-			// Build markers and elements for venues returned.
-			$.each( dataobj, function() {	
+	getVenues();
+}
+
+function ViewModel() {
+	self = this;
+
+	self.venues = ko.observableArray([
+		new SearchVenue("")
+	]);
+
+	self.getVenues = function() {
+		$.ajax({
+			type:"GET",
+			url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
+			success: function(data) {
+				$('#venues').show();
+				var dataobj = data.response.groups[0].items;
+				$('#venues').html;
+
+				//Rebuild map using data.
+				var myOptions = {
+					zoom:11,
+					center: new google.maps.LatLng(33.340053, -111.859627),
+					mapTypeId: google.maps.MapTypeId.HYBRID,
+					panControl: true,
+					zoomControl: true
+				},
+				map = new google.maps.MAP(document.getElementById('map'), myOptions);
+
+				//Build markers and elements for returned venues.
+				$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
 					phone = "Phone:"+this.venue.contact.formattedPhone;
 				} else {
@@ -94,27 +81,32 @@ function viewModel() {
 					
 				// Build markers
 				var markerImage = {
-				url: 'images/ScopePin.png',
-				scaledSize: new google.maps.Size(24, 24),
-				origin: new google.maps.Point(0,0),
-				anchor: new google.maps.Point(24/2, 24)
+					url: 'images/ScopePin.png',
+					scaledSize: new google.maps.Size(24, 24),
+					origin: new google.maps.Point(0,0),
+					anchor: new google.maps.Point(24/2, 24)
 				},
 				markerOptions = {
-				map: map,
-				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-				title: this.venue.name,
-				animation: google.maps.Animation.DROP,
-				icon: markerImage,
-				optimized: false
+					map: map,
+					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+					title: this.venue.name,
+					animation: google.maps.Animation.DROP,
+					icon: markerImage,
+					optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
 			});
-		}
-	});
-}
+			}
+		})
+		
+	}
 
-	
-	//Rebuild map to display markers retrieved from FS database
+}//End of ViewModel
+var viewModel = new ViewModel();
+ko.applyBindings(viewModel);
+
+
+//Rebuild map to display markers retrieved from FS database
 	function mapbuild() {
 		$("#venues").hide();
 		var myOptions = {
@@ -136,5 +128,9 @@ function viewModel() {
 		google.maps.event.trigger(map,"resize");
 		map.setCenter(center);
 	});
-}
-ko.applyBindings(viewModel);
+
+
+
+
+
+
