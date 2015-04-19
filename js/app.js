@@ -35,9 +35,7 @@ function getLocation(location){
 function ViewModel() {
 	self = this;
 
-	self.venues = ko.observableArray([
-		new SearchVenue("")
-	]);
+	self.venues = ko.observableArray([]);
 
 	self.getVenues = function() {
 		$.ajax({
