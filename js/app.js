@@ -24,6 +24,7 @@ function searchVenue() {
 		}
 	});
 }
+searchVenue();
 
 function getLocation(location){
 	lat = location.coords.latitude;
