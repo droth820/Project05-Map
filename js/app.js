@@ -1,4 +1,14 @@
-function searchVenue() {
+function getLocation(location){
+	lat = location.coords.latitude;
+	lng = location.coords.longitude;
+
+	getVenues();
+}
+
+function ViewModel() {
+	self = this;
+
+	function searchVenue() {
 	$('#query').click(function(){
 		$(this).val("");
 	});
@@ -25,16 +35,6 @@ function searchVenue() {
 	});
 }
 searchVenue();
-
-function getLocation(location){
-	lat = location.coords.latitude;
-	lng = location.coords.longitude;
-
-	getVenues();
-}
-
-function ViewModel() {
-	self = this;
 
 	self.venues = ko.observableArray([]);
 
