@@ -57,8 +57,8 @@ function ViewModel(){
 				
 			// Build markers and elements for venues returned.
 			$.each( dataobj, function() {	
-				if (this.venue.contact.formattedPhone) {
-					phone = "Phone:"+this.venue.contact.formattedPhone;
+				if (this.venue.contact) {
+					phone = "Phone:"+this.venue.contact;
 				} else {
 					phone = "";
 					console.log('phone number');
