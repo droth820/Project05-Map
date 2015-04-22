@@ -61,6 +61,7 @@ function ViewModel(){
 					phone = "Phone:"+this.venue.contact.formattedPhone;
 				} else {
 					phone = "";
+					console.log('phone number');
 				}
 					
 				if (this.venue.location.address) {
