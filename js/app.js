@@ -71,11 +71,11 @@ function ViewModel() {
 
 				}
 				if (self.venue()[i].venue.location == this.venue.location.address()) {
-					(self.venue()[i].venue.location.address;
+					self.venue()[i].venue.location.address;
 
 				}
 				if (self.venue()[i].venue.rating == this.venue.rating()) {
-					(self.venue()[i].venue.rating;
+					self.venue()[i].venue.rating;
 				}
 
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
