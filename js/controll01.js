@@ -5,8 +5,6 @@ function ViewModel(){
 		$('#query').click(function() {
 				$(this).val('');
 			});
-		console.log('button clicked');
-		alert('button clicked');
 
 			$('#query').blur(function(){
 				if($(this).val() = '') {
@@ -31,6 +29,7 @@ function ViewModel(){
 			});
 			return getVenues();
 	});
+	console.log('button clicked');
 		//Geolocation
 	function getLocation(location) {
 		lat = location.coords.latitude;
