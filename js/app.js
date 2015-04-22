@@ -36,7 +36,7 @@ function ViewModel() {
 }
 searchVenue();
 
-	self.venues = ko.observableArray([]);
+	self.venue = ko.observableArray([]);
 
 	self.getVenues = function() {
 		$.ajax({
