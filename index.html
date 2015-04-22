@@ -51,7 +51,7 @@
       <article>
         <form data-bind="submit: searchVenue" action="#" method="GET" id="searchform">
             <input type="text" name="query" id="query" value="Example: Ninja Japanese Restaurant">
-            <input type="submit" name="submit" id="submit" value="Submit">
+            <input data-bind="click: viewModel" type="submit" name="submit" id="submit" value="Submit">
           </form>
       </article>
       </div>
