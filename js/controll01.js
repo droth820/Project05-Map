@@ -114,9 +114,10 @@ ko.applyBindings(viewModel);
 		zoomControl: true,
 		tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 		},
-		console.log('map built');
+
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
 	}
+	console.log('map built');
 	
 	//Build the map and get things going
 	mapbuild();
