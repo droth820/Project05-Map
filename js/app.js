@@ -33,10 +33,10 @@ function ViewModel() {
 			getVenues();
 		}
 	});
+	return searchVenue();
 }
-searchVenue();
 
-	self.venue = ko.observableArray([]);
+
 
 	self.getVenues = function() {
 		$.ajax({
@@ -57,7 +57,35 @@ searchVenue();
 				},
 				map = new google.maps.MAP(document.getElementById('map'), myOptions);
 
-				//Build markers and elements for returned venues.
+				///New Viewmodel. see ch05-01.html
+			self.venue.contact = ko.observable();
+			self.venue.location = ko.observable();
+			self.venue.rating = ko.observable();
+
+			self.venue = ko.observableArray([]);
+	
+			self.venue([]);
+			for (var i = 0; i < self.venue().length; i++) {
+				if(self.venue()[i].venue.contact == this.venue.contact()) {
+				self.venue.contact()[i].this.venue.contact;
+
+				}
+				if (self.venue()[i].venue.location == this.venue.location.address()) {
+					(self.venue()[i].venue.location.address;
+
+				}
+				if (self.venue()[i].venue.rating == this.venue.rating()) {
+					(self.venue()[i].venue.rating;
+				}
+
+				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
+			$("#venues").append(appendeddatahtml);
+			}
+			
+
+
+
+			/*	//Build markers and elements for returned venues.
 				$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
 					phone = "Phone:"+this.venue.contact.formattedPhone;
@@ -77,7 +105,7 @@ searchVenue();
 					
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-					
+			*/	
 				// Build markers
 				var markerImage = {
 					url: 'images/ScopePin.png',
