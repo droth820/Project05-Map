@@ -101,6 +101,7 @@ function ViewModel(){
 }
 var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
+console.log('knockout called successfully');
 	
 
 //Rebuild map to display markers retrieved from FS database
