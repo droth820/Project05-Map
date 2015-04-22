@@ -123,11 +123,9 @@ function ViewModel() {
 				},
 				marker = new google.maps.Marker(markerOptions)
 			});
-			}
 		})
-		
 	}
-
+		
 }//End of ViewModel
 var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
