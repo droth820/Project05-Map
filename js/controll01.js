@@ -76,7 +76,7 @@ function ViewModel(){
 					
 				appendeddatahtml = '<div class="venue"><p><b><span>'+this.venue.name+'</b>'+rating+'</span></h2>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-					
+				console.log('venue data received');	
 				// Build markers
 				var markerImage = {
 				url: 'images/ScopePin.png',
