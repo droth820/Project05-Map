@@ -123,7 +123,7 @@ function ViewModel() {
 				},
 				marker = new google.maps.Marker(markerOptions)
 			});
-		})
+		}
 	}
 		
 }//End of ViewModel
