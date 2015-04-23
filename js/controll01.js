@@ -38,7 +38,7 @@ function ViewModel(){
 				}
 			});
 			return getVenues();
-	});
+	}
 	console.log('button clicked');
 		//Geolocation
 	function getLocation(location) {
