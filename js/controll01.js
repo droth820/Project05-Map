@@ -11,7 +11,7 @@ function ViewModel(){
 	this.rating = "";
 	this.address = "";
 
-	self.searchVenue(function() {
+	function searchVenue() {
 		$('#query').click(function() {
 				$(this).val('');
 			});
