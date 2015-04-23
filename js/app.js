@@ -1,3 +1,55 @@
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 11
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
@@ -11,13 +63,7 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	//Create google map and attach it to div #map
-	var map = new google.maps.Map(document.getElementById('map'), {
-     	zoom: 11,
-     	center: new google.maps.LatLng(33.340053, -111.859627),
-     	mapTypeId: google.maps.MapTypeId.HYBRID
-    });
-
+	
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
