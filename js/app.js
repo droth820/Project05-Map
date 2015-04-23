@@ -1,6 +1,5 @@
 function viewModel() {
 	var self = this;
-	this.map = ko.observable();
 	this.marker = ko.observable();
 	this.lat = "";
     this.lng = "";
@@ -11,7 +10,6 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	this.searchVenue = ko.observable();
 
 	//Search for venue based on user query
 	function searchVenue(){
@@ -75,6 +73,7 @@ function viewModel() {
 			$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
 					phone = "Phone:"+this.venue.contact.formattedPhone;
+					console.log('phone number');
 				} else {
 					phone = "";
 				}
