@@ -3,7 +3,8 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 11
+    zoom: 11,
+    mapTypeId: google.maps.MapTypeId.Hybrid,
   };
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
@@ -41,7 +42,7 @@ function handleNoGeolocation(errorFlag) {
     map: map,
     position: new google.maps.LatLng(60, 105),
     content: content,
-    mapTypeId: google.maps.MapTypeId.Hybrid,
+    
   };
 
   var infowindow = new google.maps.InfoWindow(options);
