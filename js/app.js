@@ -110,30 +110,30 @@ function viewModel() {
 			});
 		}
 	});
-}
-
+}	
 	
-	//Rebuild map to display markers retrieved from FS database
-	function mapbuild() {
-		$("#venues").hide();
-		var myOptions = {
-		zoom:11,
-		center: new google.maps.LatLng(33.340053, -111.859627),
-		mapTypeId: google.maps.MapTypeId.Hybrid,
-		panControl: true,
-		zoomControl: true,
-		tilt: 45 //Allow user to pan at 45 degree angle when in street view.
-		},
+}
+ko.applyBindings(viewModel);
+
+//Rebuild map to display markers retrieved from FS database
+function mapbuild() {
+	$("#venues").hide();
+	var myOptions = {
+	zoom:11,
+	center: new google.maps.LatLng(33.340053, -111.859627),
+	mapTypeId: google.maps.MapTypeId.Hybrid,
+	panControl: true,
+	zoomControl: true,
+	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
+	},
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
 	}
 	
-	//Build the map and get things going
-	mapbuild();
+//Build the map and get things going
+mapbuild();
 
-	google.maps.event.addDomListener(window, "resize", function(){
-		var center = map.getCenter();
-		google.maps.event.trigger(map,"resize");
-		map.setCenter(center);
-	});
-}
-ko.applyBindings(viewModel);
+google.maps.event.addDomListener(window, "resize", function(){
+	var center = map.getCenter();
+	google.maps.event.trigger(map,"resize");
+	map.setCenter(center);
+});
