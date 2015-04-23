@@ -11,6 +11,12 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
+	//Create google map and attach it to div #map
+	var map = new google.maps.Map(document.getElementById('map'), {
+     	zoom: 5,
+     	center: new google.maps.LatLng(48.856826, 2.348262),
+     	mapTypeId: google.maps.MapTypeId.HYBRID
+    });
 
 	//Search for venue based on user query
 	function searchVenue(){
