@@ -5,7 +5,7 @@ function initialize() {
   var mapOptions = {
     zoom: 11
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
+  map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
   // Try HTML5 geolocation
