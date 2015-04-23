@@ -14,7 +14,7 @@ function viewModel() {
 	//Create google map and attach it to div #map
 	var map = new google.maps.Map(document.getElementById('map'), {
      	zoom: 5,
-     	center: new google.maps.LatLng(48.856826, 2.348262),
+     	center: new google.maps.LatLng(getLocation()),
      	mapTypeId: google.maps.MapTypeId.HYBRID
     });
 
