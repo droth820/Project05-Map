@@ -40,7 +40,8 @@ function handleNoGeolocation(errorFlag) {
   var options = {
     map: map,
     position: new google.maps.LatLng(60, 105),
-    content: content
+    content: content,
+    mapTypeId: google.maps.MapTypeId.Hybrid,
   };
 
   var infowindow = new google.maps.InfoWindow(options);
