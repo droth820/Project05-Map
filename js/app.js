@@ -50,6 +50,11 @@ function handleNoGeolocation(errorFlag) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, "resize", function(){
+	var center = map.getCenter();
+	google.maps.event.trigger(map,"resize");
+	map.setCenter(center);
+});
 
 
 function viewModel() {
@@ -187,8 +192,3 @@ function mapbuild() {
 //Build the map and get things going
 mapbuild();
 
-google.maps.event.addDomListener(window, "resize", function(){
-	var center = map.getCenter();
-	google.maps.event.trigger(map,"resize");
-	map.setCenter(center);
-});
