@@ -62,7 +62,7 @@ function viewModel() {
 	  	type: "GET",
 	  	url: "https://api.foursquare.com/v2/venues/explore?ll="+lat+","+lng+"&client_id=HFOT1XUCTPSBFCWA0W5OMCOLVPWLUA5T0ELRWKDOKAEVRB3V&client_secret=SJRCFDAGLCACDPY1EIEHNITKJIKNCN5KFPOINR0RCPYX35LZ&v=20130619&query="+$("#query").val()+"",
 	  	success: function(data) {
-			$("#venues").hide();
+			$("#venues").show();
 			var dataobj = data.response.groups[0].items;
 			$("#venues").html("");
 				
@@ -124,7 +124,7 @@ ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
 function mapbuild() {
-	$("#venues").show();
+	$("#venues").hide();
 	var myOptions = {
 	zoom:11,
 	center: new google.maps.LatLng(33.340053, -111.859627),
