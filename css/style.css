@@ -119,7 +119,7 @@ html { overflow-y: scroll; }
 	border-radius: 10px;
 	display: block;
 	top:0;
-	height: 100%;
+	height: 500px;
 	width: 100%;
 	-webkit-box-shadow: 10px 5px 10px 5px #003333;
 	box-shadow: 10px 5px 10px 5px #003333;
