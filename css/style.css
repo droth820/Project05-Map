@@ -23,7 +23,7 @@ html { overflow-y: scroll; }
 
 .header {
 	text-align: center;
-	font-size: 32px;
+	font-size: 2em;
 	color: #000000;
 }
 
@@ -42,7 +42,7 @@ html { overflow-y: scroll; }
 #query {
 	padding:2px;
 	border:solid 1px #ccc;
-	font-size:18px;
+	font-size:1em;
 	color:#ccc;
 	width: 50%;
 }
