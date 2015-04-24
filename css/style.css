@@ -96,7 +96,7 @@ html { overflow-y: scroll; }
 .rating {
 	padding:10px;
 	background-color:#666699;
-	font-size:1em;
+	font-size:0.8em;
 	border-radius:5px;
 	color:#fff;
 	margin-left:15px;
@@ -119,6 +119,7 @@ html { overflow-y: scroll; }
 	border-radius: 10px;
 	display: block;
 	top:0;
+	left: 0;
 	height: 500px;
 	width: 100%;
 	-webkit-box-shadow: 10px 5px 10px 5px #003333;
