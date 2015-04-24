@@ -122,6 +122,7 @@ html { overflow-y: scroll; }
 	top:0;
 	left: 0;
 	height: 500px;
+	position: absolute;
 	width: 100%;
 	-webkit-box-shadow: 10px 5px 10px 5px #003333;
 	box-shadow: 10px 5px 10px 5px #003333;
