@@ -96,7 +96,7 @@ html { overflow-y: scroll; }
 .rating {
 	padding:10px;
 	background-color:#666699;
-	font-size:14px;
+	font-size:1em;
 	border-radius:5px;
 	color:#fff;
 	margin-left:15px;
@@ -104,20 +104,23 @@ html { overflow-y: scroll; }
 	box-shadow: 5px 5px 5px 5px #003333;
 }
 
-.mapDiv {
+
+
+/*.mapDiv {
 	width: 100%;
 	height: 500px;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
-
+*/
 #map {
 	border: 3px solid #E7E4D3;
 	border-radius: 10px;
 	display: block;
 	top:0;
 	height: 100%;
+	width: 100%;
 	-webkit-box-shadow: 10px 5px 10px 5px #003333;
 	box-shadow: 10px 5px 10px 5px #003333;
 }
