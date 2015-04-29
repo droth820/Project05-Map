@@ -161,7 +161,7 @@ function viewModel() {
 				markerOptions = {
 				map: map,
 				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-				title: this.venue.name,
+				title: '<h3>' +this.venue.name + '</h3>',
 				animation: google.maps.Animation.DROP,
 				icon: markerImage,
 				optimized: false
