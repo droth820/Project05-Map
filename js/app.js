@@ -39,7 +39,7 @@ function handleNoGeolocation(errorFlag) {
 
   var options = {
     map: map,
-    /*position: new google.maps.LatLng(60, 105),*/
+    position: new google.maps.LatLng(60, 105),
     content: content
     
   };
@@ -121,7 +121,7 @@ function viewModel() {
 			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
-				/*center: new google.maps.LatLng(33.340053, -111.859627),*/
+				center: new google.maps.LatLng(33.340053, -111.859627),
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				panControl: true,
 				zoomControl: true
