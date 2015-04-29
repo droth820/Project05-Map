@@ -187,11 +187,6 @@ function mapbuild() {
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
-
-	var infowindow = new google.maps.InfoWindow({
-        map: map,
-        content: '<h3><center>You are here!</center></h3>'
-      });
 	}
 	
 //Build the map and get things going
