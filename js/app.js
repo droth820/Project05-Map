@@ -162,7 +162,7 @@ function viewModel() {
 				map: map,
 				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
 				title: this.venue.name,
-				position: this.venue.location.address,
+				place: this.venue.location.address,
 				animation: google.maps.Animation.DROP,
 				icon: markerImage,
 				optimized: false
