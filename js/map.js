@@ -1,8 +1,8 @@
 /*Creates map that will be viewed on website*/
 var locations = [
-  ['Valle Luna', 33.319197, -111.874096,'Mexican food restaurant'],
-  ['Zappone\'s Italian Bistro', '33.380328, -111.724445', 'Italian food restaurant'],
-  ['Harkins Towne Center', '33.278889, -111.790663', 'Movie theater']
+  ['Valle Luna', 33.319197, -111.874096,'Mexican food restaurant', 'http://www.valleluna.com/'],
+  ['Zappone\'s Italian Bistro', 33.380328, -111.724445, 'Italian food restaurant','http://www.zapponesbistro.com/'],
+  ['Harkins Towne Center', 33.278889, -111.790663, 'Movie theater','http://www.harkinstheatres.com/']
 
 ];
 
@@ -26,7 +26,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
 
      			 google.maps.event.addListener(marker, 'click', (function(marker, i) {
        			 return function() {
-         			 infowindow.setContent('<div><h2>'+ locations[i][0]+ '</h2></div>' +'<div>'+locations [i][3]+'</div>');
+         			 infowindow.setContent('<div><h2>'+ locations[i][0]+ '</h2></div>' +'<div>'+locations[i][3]+'</div>'+'<div>'+locations[i][4]+'</div>');
          			 infowindow.open(map, marker);
         			}
       			})(marker, i));
