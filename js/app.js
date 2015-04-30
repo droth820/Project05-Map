@@ -1,5 +1,4 @@
 function initMap(){
-  $('venuewrapper').hide();
   var options = {
     center: new google.maps.LatLng(33.340053, -111.859627),
     mapTypeId: google.maps.MapTypeId.Hybrid,
