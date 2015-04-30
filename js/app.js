@@ -103,12 +103,9 @@ function viewModel() {
 
 	
 	//Sets user location for gathering venue information based on search query
-	var newLocation;
 	function getLocation(location) {
 	    lat = location.coords.latitude;
 	    lng = location.coords.longitude;
-	    newLocation = lat + lng;
-	    return newLocation;
 		getVenues();
 	}
 	//Connect with Foursquare database and set parameters for displaying retrieved information
@@ -124,7 +121,7 @@ function viewModel() {
 			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
-				center: new google.maps.LatLng(newLocation),
+				center: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				panControl: true,
 				zoomControl: true
