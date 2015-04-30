@@ -1,3 +1,17 @@
+function initMap(){
+  $('venuewrapper').hide();
+  var options = {
+    center: new google.maps.LatLng(33.340053, -111.859627),
+    mapTypeId: google.maps.MapTypeId.Hybrid,
+    panControl: true,
+    zoomControl: true,
+    tilt: 45 //Allow user to pan at 45 degree angle when in street view.
+  },
+  map = new google.maps.Map(document.getElementById('map'), options);
+}
+initMap();
+
+
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
