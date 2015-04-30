@@ -121,7 +121,7 @@ function viewModel() {
 			// Rebuild the map using data.
 			var myOptions = {
 				zoom:11,
-				center: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+				center: new google.maps.LatLng(this.location.lat, this.location.lng),
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				panControl: true,
 				zoomControl: true
