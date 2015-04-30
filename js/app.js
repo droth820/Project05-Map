@@ -108,6 +108,7 @@ function viewModel() {
 	    lat = location.coords.latitude;
 	    lng = location.coords.longitude;
 	    newLocation = lat + lng;
+	    return newLocation;
 		getVenues();
 	}
 	//Connect with Foursquare database and set parameters for displaying retrieved information
