@@ -16,7 +16,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
    			 var infowindow = new google.maps.InfoWindow();
 
           
-    			var favMarker, i;
+    			var marker, i;
     			for (i = 0; i < locations.length; i++) {  
      			 marker = new google.maps.Marker({
               icon: 'images/pin2.png',
