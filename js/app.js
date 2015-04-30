@@ -1,4 +1,4 @@
-var map;
+/*var map;
 
 function initialize() {
   var mapOptions = {
@@ -54,7 +54,7 @@ google.maps.event.addDomListener(window, "resize", function(){
 	google.maps.event.trigger(map,"resize");
 	map.setCenter(center);
 });
-
+*/
 
 function viewModel() {
 	var self = this;
