@@ -26,7 +26,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
 
      			 google.maps.event.addListener(marker, 'click', (function(marker, i) {
        			 return function() {
-         			 infowindow.setContent('<div><h2>'+ locations[i][0]+ '</h2></div>' +'<div>'+locations [i][2]+'</div>');
+         			 infowindow.setContent('<div><h2>'+ locations[i][0]+ '</h2></div>' +'<div>'+locations [i][3]+'</div>');
          			 infowindow.open(map, marker);
         			}
       			})(marker, i));
