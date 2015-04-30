@@ -179,7 +179,7 @@ function mapbuild() {
 	$("#venues").hide();
 	var myOptions = {
 	zoom:11,
-	center: new google.maps.LatLng(33.340053, -111.859627),
+	/*center: new google.maps.LatLng(33.340053, -111.859627),*/
 	mapTypeId: google.maps.MapTypeId.Hybrid,
 	panControl: true,
 	zoomControl: true,
