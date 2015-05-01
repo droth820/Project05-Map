@@ -1,14 +1,14 @@
-var map;
-document.onload = function initialize() {
+function initialize() {
 	var mapOptions = {
     center: new google.maps.LatLng(33.340053, -111.859627),
+    zoom: 11,
     mapTypeId: google.maps.MapTypeId.Hybrid
   };
 
-	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
-
+google.maps.event.addDomListener(window, 'load', initialize);
 
 function viewModel() {
 	var self = this;
