@@ -1,5 +1,5 @@
 var map;
-function initialize() {
+document.onload = function initialize() {
 	var mapOptions = {
     center: new google.maps.LatLng(33.340053, -111.859627),
     mapTypeId: google.maps.MapTypeId.Hybrid
@@ -7,6 +7,7 @@ function initialize() {
 
 	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
+
 
 
 function viewModel() {
