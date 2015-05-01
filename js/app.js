@@ -5,10 +5,8 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.Hybrid
   };
 
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
-
-map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
 
 
 function viewModel() {
