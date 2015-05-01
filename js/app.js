@@ -7,7 +7,7 @@ function initialize() {
 
 }
 
-map = new google.maps.Map(document.getElementById('map'), options);
+map = new google.maps.Map(document.getElementById('map'), myOptions);
 
 
 
