@@ -1,15 +1,8 @@
-var locations = [
-  ['Valle Luna', 33.319197, -111.874096,'Mexican food restaurant'],
-  ['Zappone\'s Italian Bistro', '33.380328, -111.724445', 'Italian food restaurant'],
-  ['Harkins Towne Center', '33.278889, -111.790663', 'Movie theater']
-
-];
-
 function initialize() {
 	var mapOptions = {
     center: new google.maps.LatLng(33.340053, -111.859627),
     zoom: 11,
-    mapTypeId: google.maps.MapTypeId.Hybrid
+    mapTypeId: google.maps.MapTypeId.HYBRID
   };
 
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
