@@ -55,6 +55,7 @@ google.maps.event.addDomListener(window, "resize", function(){
 	map.setCenter(center);
 });
 
+
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
@@ -165,13 +166,6 @@ function viewModel() {
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions);
-				var infowindow = new google.maps.InfoWindow();
-				google.maps.event.addListener(marker, 'click', (function(marker, i) {
-       			 return function() {
-         			 infowindow.setContent("You clicked me!");
-         			 infowindow.open(map, marker);
-        			}
-			});
 		}
 	});
 }	
