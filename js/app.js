@@ -55,7 +55,6 @@ google.maps.event.addDomListener(window, "resize", function(){
 	map.setCenter(center);
 });
 
-*/
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
