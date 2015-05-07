@@ -117,7 +117,10 @@ function viewModel() {
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
+				var infowindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(marker, 'click', toggleBounce);
+				infowindow.setContent(this.venue.location);
+				infowindow.open(map, marker);
 				});
 				
 				
