@@ -12,6 +12,13 @@ function viewModel() {
 	this.rating = "";
 	this.address = "";
 	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
 
 	//Search for venue based on user query
 	function searchVenue(){
@@ -104,12 +111,13 @@ function viewModel() {
 				map: map,
 				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
 				title: this.venue.name,
+				content: this.venue.location.address,
 				animation: google.maps.Animation.DROP,
 				icon: markerImage,
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
-				
+				google.maps.event.addListener(marker, 'click', toggleBounce);
 				});
 				
 				
@@ -135,17 +143,8 @@ function mapbuild() {
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
+	}
 
-	google.maps.event.addListener(marker, 'click', toggleBounce);
-}
-function toggleBounce() {
-
-  if (marker.getAnimation() != null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
 	
 //Build the map and get things going
 mapbuild();
