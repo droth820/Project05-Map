@@ -82,7 +82,6 @@ function viewModel() {
 			$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
 					phone = "Phone:"+this.venue.contact.formattedPhone;
-					console.log('phone number');
 				} else {
 					phone = "";
 				}
@@ -118,6 +117,7 @@ function viewModel() {
 					return function() {
 						infowindow.setContent('<div><h2>'+this.venue.name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
 						infowindow.open(map, markerOptions);
+						console.log("marker added");
 					}
 				}));
 
