@@ -1,9 +1,3 @@
-function getLocation(location){
-	lat = location.coords.latitude;
-	lng = location.coords.longitude;
-
-	getVenues();
-}
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
@@ -18,6 +12,14 @@ function viewModel() {
 	this.rating = "";
 	this.address = "";
 	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
@@ -119,13 +121,7 @@ function viewModel() {
 				
 			}
 		});
-		function toggleBounce() {
-			if (marker.getAnimation() != null) {
-				marker.setAnimation(null);
-			} else {
-				marker.setAnimation(google.maps.Animation.BOUNCE);
-			}
-		}
+		
 	}
 
 
