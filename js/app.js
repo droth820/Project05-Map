@@ -108,7 +108,7 @@ function viewModel() {
 				var infowindow = new google.maps.InfoWindow();
 
 				var marker = {
-					url: 'images/ScopePin.png',
+					icon: 'images/ScopePin.png',
 					scaledSize: new google.maps.Size(24, 24),
 					origin: new google.maps.Point(0,0),
 					anchor: new google.maps.Point(24/2, 24),
@@ -119,7 +119,7 @@ function viewModel() {
 					location: this.venue.location.address,
 					optimized: false
 				},
-				marker = new google.maps.Marker(marker);
+				//marker = new google.maps.Marker(marker);
 				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
 						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
