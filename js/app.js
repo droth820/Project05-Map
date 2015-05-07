@@ -99,9 +99,26 @@ function viewModel() {
 					
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-					
+				
+				//Using different method for building markers
+				var infowindow = new google.maps.InfoWindow();
+
+				var marker = new google.maps.Marker({
+					icon: 'images/ScopePin.png',
+					scaledSize: new google.maps.Size(24, 24),
+					origin: new google.maps.Point(0,0),
+					anchor: new google.maps.Point(24/2, 24),
+					map: map
+				});
+				google.maps.event.addListener(marker, 'click', (function(marker){
+					return function() {
+						infowindow.setContent('<div><h2>'+this.venue.name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
+						infowindow.open(map,marker);
+					}
+				}));
+
 				// Build markers
-				var markerImage = {
+				/*var markerImage = {
 				url: 'images/ScopePin.png',
 				scaledSize: new google.maps.Size(24, 24),
 				origin: new google.maps.Point(0,0),
@@ -111,16 +128,11 @@ function viewModel() {
 				map: map,
 				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
 				title: this.venue.name,
-				content: this.venue.location.address,
 				animation: google.maps.Animation.DROP,
 				icon: markerImage,
 				optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions)
-				var infowindow = new google.maps.InfoWindow();
-				google.maps.event.addListener(marker, 'click', toggleBounce);
-				infowindow.setContent(this.venue.location);
-				infowindow.open(map, marker);
+				marker = new google.maps.Marker(markerOptions)*/
 				});
 				
 				
