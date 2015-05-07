@@ -113,7 +113,7 @@ function viewModel() {
 					icon: marker,
 					optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions);
+				marker = new google.maps.Marker();
 				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
 						infowindow.setContent('<div><h2>'+this.venue.name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
