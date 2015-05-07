@@ -12,14 +12,6 @@ function viewModel() {
 	this.rating = "";
 	this.address = "";
 	
-	function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}
-
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
@@ -148,7 +140,7 @@ function mapbuild() {
 	zoomControl: true,
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
-	map = new google.maps.Map(document.getElementById('map'), myOptions);
+	//map = new google.maps.Map(document.getElementById('map'), myOptions);
 	}
 
 	
