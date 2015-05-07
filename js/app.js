@@ -114,7 +114,7 @@ function viewModel() {
 					anchor: new google.maps.Point(24/2, 24),
 					map: map,
 					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-					icon: marker,
+					//icon: marker,
 					name: this.venue.name,
 					location: this.venue.location.address,
 					optimized: false
