@@ -115,6 +115,7 @@ function viewModel() {
 					map: map,
 					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
 					icon: marker,
+					name: this.venue.name,
 					optimized: false
 				},
 				marker = new google.maps.Marker(marker);
