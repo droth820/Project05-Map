@@ -115,7 +115,8 @@ function viewModel() {
 				icon: markerImage,
 				optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions, 'click', toggleBounce)
+				marker = new google.maps.Marker(markerOptions)
+				google.maps.event.addListener(marker, 'click', toggleBounce);
 				});
 				
 				
