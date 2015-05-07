@@ -1,61 +1,9 @@
-var map;
+function getLocation(location){
+	lat = location.coords.latitude;
+	lng = location.coords.longitude;
 
-function initialize() {
-  var mapOptions = {
-    zoom: 11,
-    mapTypeId: google.maps.MapTypeId.Hybrid
-  };
-  map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-
-  // HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: '<h3><center>You are here!</center></h3>'
-      });
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
+	getVenues();
 }
-
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-    
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.addDomListener(window, "resize", function(){
-	var center = map.getCenter();
-	google.maps.event.trigger(map,"resize");
-	map.setCenter(center);
-});
-
-
 function viewModel() {
 	var self = this;
 	this.marker = ko.observable();
