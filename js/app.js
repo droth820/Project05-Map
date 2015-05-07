@@ -141,7 +141,7 @@ function mapbuild() {
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
 	//map = new google.maps.Map(document.getElementById('map'), myOptions);
-	}
+}
 
 	
 //Build the map and get things going
