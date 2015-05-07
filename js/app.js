@@ -100,9 +100,14 @@ function viewModel() {
 				$("#venues").append(appendeddatahtml);
 				
 				//Using different method for building markers
+				var map = new google.maps.Map(document.getElementById('map'), {
+           			zoom: 5,
+           			center: new google.maps.LatLng(33.340053, -111.859627),
+           			mapTypeId: google.maps.MapTypeId.HYBRID
+          			});
 				var infowindow = new google.maps.InfoWindow();
 
-				var markerOptions = {
+				var marker = {
 					url: 'images/ScopePin.png',
 					scaledSize: new google.maps.Size(24, 24),
 					origin: new google.maps.Point(0,0),
@@ -112,11 +117,11 @@ function viewModel() {
 					icon: marker,
 					optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions);
-				google.maps.event.addListener(markerOptions, 'click', (function(markerOptions){
+				marker = new google.maps.Marker(marker);
+				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
 						infowindow.setContent('<div><h2>'+this.venue.name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
-						infowindow.open(map, markerOptions);
+						infowindow.open(map, marker);
 						console.log("marker added");
 					}
 				})(marker));
@@ -152,7 +157,7 @@ function viewModel() {
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
-function mapbuild() {
+/*function mapbuild() {
 	$("#venues").hide();
 	var myOptions = {
 	center: new google.maps.LatLng(33.340053, -111.859627),
@@ -166,4 +171,4 @@ function mapbuild() {
 
 	
 //Build the map and get things going
-mapbuild();
+mapbuild();*/
