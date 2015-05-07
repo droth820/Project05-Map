@@ -122,7 +122,7 @@ function viewModel() {
 				marker = new google.maps.Marker(marker);
 				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
-						infowindow.setContent('<div><h2>'+name+'</h2></div>'+'<p>'+location+'</p>');
+						infowindow.setContent('<div><h2>'+name+'</h2></div>');
 						infowindow.open(map, marker);
 						console.log("marker added");
 					}
