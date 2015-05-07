@@ -98,13 +98,6 @@ function viewModel() {
 					
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-				
-				//Using different method for building markers
-				/*var map = new google.maps.Map(document.getElementById('map'), {
-           			zoom: 11,
-           			center: new google.maps.LatLng(33.340053, -111.859627),
-           			mapTypeId: google.maps.MapTypeId.HYBRID
-          			});*/
 				var infowindow = new google.maps.InfoWindow();
 
 				var markerImage = {
@@ -131,22 +124,6 @@ function viewModel() {
 					}
 				})(marker));
 
-				// Build markers
-				/*var markerImage = {
-				url: 'images/ScopePin.png',
-				scaledSize: new google.maps.Size(24, 24),
-				origin: new google.maps.Point(0,0),
-				anchor: new google.maps.Point(24/2, 24)
-				},
-				markerOptions = {
-				map: map,
-				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-				title: this.venue.name,
-				animation: google.maps.Animation.DROP,
-				icon: markerImage,
-				optimized: false
-				},
-				marker = new google.maps.Marker(markerOptions)*/
 				});
 				
 				
