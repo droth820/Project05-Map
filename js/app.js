@@ -100,11 +100,11 @@ function viewModel() {
 				$("#venues").append(appendeddatahtml);
 				
 				//Using different method for building markers
-				var map = new google.maps.Map(document.getElementById('map'), {
+				/*var map = new google.maps.Map(document.getElementById('map'), {
            			zoom: 11,
            			center: new google.maps.LatLng(33.340053, -111.859627),
            			mapTypeId: google.maps.MapTypeId.HYBRID
-          			});
+          			});*/
 				var infowindow = new google.maps.InfoWindow();
 
 				var marker = {
@@ -159,7 +159,7 @@ function viewModel() {
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
-/*function mapbuild() {
+function mapbuild() {
 	$("#venues").hide();
 	var myOptions = {
 	center: new google.maps.LatLng(33.340053, -111.859627),
@@ -173,4 +173,4 @@ ko.applyBindings(viewModel);
 
 	
 //Build the map and get things going
-mapbuild();*/
+mapbuild();
