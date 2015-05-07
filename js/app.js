@@ -121,7 +121,7 @@ function viewModel() {
 				marker = new google.maps.Marker(marker);
 				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
-						infowindow.setContent('<div><h2>'+this.venue.name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
+						infowindow.setContent('<div><h2>'+name+'</h2></div>'+'<p>'+this.venue.location+'</p>');
 						infowindow.open(map, marker);
 						console.log("marker added");
 					}
