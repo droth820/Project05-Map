@@ -103,7 +103,7 @@ function viewModel() {
 				//Using different method for building markers
 				var infowindow = new google.maps.InfoWindow();
 
-				var marker = {
+				var markerOptions = {
 					icon: 'images/ScopePin.png',
 					scaledSize: new google.maps.Size(24, 24),
 					origin: new google.maps.Point(0,0),
