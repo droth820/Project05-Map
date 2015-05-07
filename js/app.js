@@ -165,10 +165,19 @@ function viewModel() {
 				icon: markerImage,
 				optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions, 'click', toggleBounce);
+				marker = new google.maps.Marker(markerOptions)
+				});
+			}
+		});
+	}
+
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
 		}
-	});
-}	
+	}	
 	
 }
 ko.applyBindings(viewModel);
