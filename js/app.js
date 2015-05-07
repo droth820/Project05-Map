@@ -107,14 +107,17 @@ function viewModel() {
           			});*/
 				var infowindow = new google.maps.InfoWindow();
 
-				var markerOptions = {
-					icon: 'images/ScopePin.png',
+				var markerImage = {
+					url: 'images/ScopePin.png',
 					scaledSize: new google.maps.Size(24, 24),
 					origin: new google.maps.Point(0,0),
-					anchor: new google.maps.Point(24/2, 24),
+					anchor: new google.maps.Point(24/2, 24)
+				},
+
+				var markerOptions = {
+					icon: markerImage,
 					map: map,
 					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-					//icon: marker,
 					name: this.venue.name,
 					location: this.venue.location.address,
 					optimized: false
