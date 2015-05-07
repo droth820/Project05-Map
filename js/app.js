@@ -119,7 +119,7 @@ function viewModel() {
 						infowindow.open(map, markerOptions);
 						console.log("marker added");
 					}
-				}));
+				})(marker));
 
 				// Build markers
 				/*var markerImage = {
