@@ -38,7 +38,7 @@ function viewModel() {
 			if (!lat) {
 				navigator.geolocation.getCurrentPosition(getLocation);
 			} else {
-				getVenues();
+				return getVenues();
 			}		
 		});
 
