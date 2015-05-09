@@ -3,7 +3,7 @@ function viewModel() {
 	this.marker = ko.observable();
 	this.map = ko.observable();
 	this.lat = "";
-    this.lng = "";
+	this.lng = "";
 	this.appendeddatahtml = "";
 	this.arguments = "";
 	this.str = "";
@@ -11,15 +11,16 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
+	this.searchVenue = ko.observable();
 	
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
 			$(this).val("");
-		});
+	});
 
 		$("#query").blur(function(){
-			if ($(this).val() == "") {
+			if ($(this).val() === "") {
 				$(this).val("Example: Ninja Japanese Restaurant");
 			}
 		
@@ -113,7 +114,7 @@ function viewModel() {
 						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
 						infowindow.open(map, marker);
 						console.log("marker added");
-					}
+					};
 				})(marker));
 
 				});
