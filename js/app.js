@@ -11,9 +11,6 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	this.searchVenue = ko.observable();
-	//this.getVenues = ko.observable();
-	
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
@@ -38,7 +35,7 @@ function viewModel() {
 			if (!lat) {
 				navigator.geolocation.getCurrentPosition(getLocation);
 			} else {
-				return getVenues();
+				getVenues();
 			}		
 		});
 
