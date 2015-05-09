@@ -12,7 +12,7 @@ function viewModel() {
 	this.rating = "";
 	this.address = "";
 	this.searchVenue = ko.observable();
-	this.getVenues= ko.observable();
+	this.getVenues = ko.observable();
 	
 	//Search for venue based on user query
 	function searchVenue(){
@@ -74,23 +74,23 @@ function viewModel() {
 				
 			// Build markers and elements for venues returned.
 			$.each( dataobj, function() {	
-				if (this.contact.formattedPhone) {
-					phone = "Phone:"+this.contact.formattedPhone;
+				if (this.venue.contact.formattedPhone) {
+					phone = "Phone:"+this.venue.contact.formattedPhone;
 				} else {
 					phone = "";
 				}
 					
-				if (this.location.address) {
-					address = '<p class="subinfo">'+this.location.address+'<br>';
+				if (this.venue.location.address) {
+					address = '<p class="subinfo">'+this.venue.location.address+'<br>';
 				} else {
 					address = "";
 				}
 					
 				if (this.venue.rating) {
-					rating = '<span class="rating">'+this.rating+'</span>';
+					rating = '<span class="rating">'+this.venue.rating+'</span>';
 				}
 					
-				appendeddatahtml = '<div class="venue"><h3><span>'+this.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.stats.checkinsCount+'</p></div>';
+				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
 				var infowindow = new google.maps.InfoWindow();
 
@@ -104,9 +104,9 @@ function viewModel() {
 				markerOptions = {
 					icon: markerImage,
 					map: map,
-					position: new google.maps.LatLng(this.location.lat, this.location.lng),
-					name: this.name,
-					location: this.location.address,
+					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+					name: this.venue.name,
+					location: this.venue.location.address,
 					optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions);
