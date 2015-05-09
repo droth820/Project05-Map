@@ -12,7 +12,7 @@ function viewModel() {
 	this.rating = "";
 	this.address = "";
 	this.searchVenue = ko.observable();
-	this.getVenues = ko.observable();
+	//this.getVenues = ko.observable();
 	
 	//Search for venue based on user query
 	function searchVenue(){
