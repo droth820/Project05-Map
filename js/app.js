@@ -1,18 +1,17 @@
-function viewModel() {
+function ViewModel(){
 	var self = this;
-	this.marker = ko.observable();
 	this.map = ko.observable();
+	this.marker = ko.observable();
 	this.lat = "";
     this.lng = "";
-	this.appendeddatahtml = "";
 	this.arguments = "";
 	this.str = "";
 	this.newstr = "";
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	
-	//Search for venue based on user query
+	this.searchVenue = ko.observable();
+
 	function searchVenue(){
 		$("#query").click(function(){
 			$(this).val("");
@@ -43,8 +42,6 @@ function viewModel() {
 	}
 	searchVenue();
 
-	
-	//Sets user location for gathering venue information based on search query
 	function getLocation(location) {
 	    lat = location.coords.latitude;
 	    lng = location.coords.longitude;
@@ -71,26 +68,15 @@ function viewModel() {
 			map = new google.maps.Map(document.getElementById('map'), myOptions);
 				
 			// Build markers and elements for venues returned.
-			$.each( dataobj, function() {	
-				if (this.venue.contact.formattedPhone) {
-					phone = "Phone:"+this.venue.contact.formattedPhone;
-					console.log('phone number');
-				} else {
-					phone = "";
-				}
-					
-				if (this.venue.location.address) {
-					address = '<p class="subinfo">'+this.venue.location.address+'<br>';
-				} else {
-					address = "";
-				}
-					
-				if (this.venue.rating) {
-					rating = '<span class="rating">'+this.venue.rating+'</span>';
-				}
-					
-				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
-				$("#venues").append(appendeddatahtml);
+			function fourSquareData(){
+				this.venue = [
+					{
+						phone: this.venue.contact.formattedPhone,
+						address: this.venue.location.address,
+						rating: this.venue.rating
+					}
+				]
+			};
 					
 				// Build markers
 				var markerImage = {
@@ -108,34 +94,9 @@ function viewModel() {
 				optimized: false
 				},
 				marker = new google.maps.Marker(markerOptions)
-				});
 			}
 		});
 	}
-
-	function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}	
-	
 }
+var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
-
-//Rebuild map to display markers retrieved from FS database
-function mapbuild() {
-	$("#venues").hide();
-	var myOptions = {
-	center: new google.maps.LatLng(33.340053, -111.859627),
-	mapTypeId: google.maps.MapTypeId.Hybrid,
-	panControl: true,
-	zoomControl: true,
-	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
-	},
-	map = new google.maps.Map(document.getElementById('map'), myOptions);
-	}
-	
-//Build the map and get things going
-mapbuild();
