@@ -12,17 +12,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 function viewModel() {
 	var self = this;
-	this.marker = ko.observable();
-	this.map = ko.observable();
-	this.lat = "";
-    this.lng = "";
-	this.appendeddatahtml = "";
-	this.arguments = "";
-	this.str = "";
-	this.newstr = "";
-	this.phone = "";
-	this.rating = "";
-	this.address = "";
+	self.marker = ko.observable();
+	self.map = ko.observable();
+	self.lat = "";
+    self.lng = "";
+	self.appendeddatahtml = "";
+	self.arguments = "";
+	self.str = "";
+	self.newstr = "";
+	self.phone = "";
+	self.rating = "";
+	self.address = "";
 	
 	//Search for venue based on user query
 	function searchVenue(){
