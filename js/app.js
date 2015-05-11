@@ -1,26 +1,33 @@
-function ViewModel() {
+function viewModel() {
 	var self = this;
-	self.marker = "";
-	self.map = "";
-	self.lat = "";
-	self.lng = "";
-	self.appendeddatahtml = "";
-	self.arguments = "";
-	self.str = "";
-	self.newstr = "";
-	self.phone = "";
-	self.rating = "";
-	self.address = "";
-	self.searchVenue = "";
+	this.marker = ko.observable();
+	this.map = ko.observable();
+	this.lat = "";
+    this.lng = "";
+	this.appendeddatahtml = "";
+	this.arguments = "";
+	this.str = "";
+	this.newstr = "";
+	this.phone = "";
+	this.rating = "";
+	this.address = "";
 	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
 			$(this).val("");
-	});
+		});
 
 		$("#query").blur(function(){
-			if ($(this).val() === "") {
+			if ($(this).val() == "") {
 				$(this).val("Example: Ninja Japanese Restaurant");
 			}
 		
@@ -114,7 +121,7 @@ function ViewModel() {
 						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
 						infowindow.open(map, marker);
 						console.log("marker added");
-					};
+					}
 				})(marker));
 
 				});
@@ -129,8 +136,6 @@ function ViewModel() {
 		
 	
 }
-
-var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
@@ -144,7 +149,7 @@ function mapbuild() {
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
-}
+	}
 
 	
 //Build the map and get things going
