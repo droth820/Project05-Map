@@ -1,4 +1,4 @@
-function viewModel() {
+function ViewModel() {
 	var self = this;
 	this.marker = ko.observable();
 	this.map = ko.observable();
@@ -129,6 +129,8 @@ function viewModel() {
 		
 	
 }
+
+var viewModel = new viewModel();
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
