@@ -1,17 +1,26 @@
-function ViewModel(){
+function viewModel() {
 	var self = this;
-	this.map = ko.observable();
 	this.marker = ko.observable();
+	this.map = ko.observable();
 	this.lat = "";
     this.lng = "";
+	this.appendeddatahtml = "";
 	this.arguments = "";
 	this.str = "";
 	this.newstr = "";
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	this.searchVenue = ko.observable();
+	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
 
+	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
 			$(this).val("");
@@ -42,6 +51,8 @@ function ViewModel(){
 	}
 	searchVenue();
 
+	
+	//Sets user location for gathering venue information based on search query
 	function getLocation(location) {
 	    lat = location.coords.latitude;
 	    lng = location.coords.longitude;
@@ -68,35 +79,78 @@ function ViewModel(){
 			map = new google.maps.Map(document.getElementById('map'), myOptions);
 				
 			// Build markers and elements for venues returned.
-			function fourSquareData(){
-				this.venue = [
-					{
-						phone: this.venue.contact.formattedPhone,
-						address: this.venue.location.address,
-						rating: this.venue.rating
-					}
-				]
-			};
+			$.each( dataobj, function() {	
+				if (this.venue.contact.formattedPhone) {
+					phone = "Phone:"+this.venue.contact.formattedPhone;
+				} else {
+					phone = "";
+				}
 					
-				// Build markers
+				if (this.venue.location.address) {
+					address = '<p class="subinfo">'+this.venue.location.address+'<br>';
+				} else {
+					address = "";
+				}
+					
+				if (this.venue.rating) {
+					rating = '<span class="rating">'+this.venue.rating+'</span>';
+				}
+					
+				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
+				$("#venues").append(appendeddatahtml);
+				var infowindow = new google.maps.InfoWindow();
+
 				var markerImage = {
-				url: 'images/ScopePin.png',
-				scaledSize: new google.maps.Size(24, 24),
-				origin: new google.maps.Point(0,0),
-				anchor: new google.maps.Point(24/2, 24)
+					url: 'images/ScopePin.png',
+					scaledSize: new google.maps.Size(24, 24),
+					origin: new google.maps.Point(0,0),
+					anchor: new google.maps.Point(24/2, 24)
 				},
+
 				markerOptions = {
-				map: map,
-				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-				title: this.venue.name,
-				animation: google.maps.Animation.DROP,
-				icon: markerImage,
-				optimized: false
+					icon: markerImage,
+					map: map,
+					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+					name: this.venue.name,
+					location: this.venue.location.address,
+					optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions)
+				marker = new google.maps.Marker(markerOptions);
+				google.maps.event.addListener(marker, 'click', (function(marker){
+					return function() {
+						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
+						infowindow.open(map, marker);
+						console.log("marker added");
+					}
+				})(marker));
+
+				});
+				
+				
 			}
 		});
+		
 	}
+
+
+		
+	
 }
-var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
+
+//Rebuild map to display markers retrieved from FS database
+function mapbuild() {
+	$("#venues").hide();
+	var myOptions = {
+	center: new google.maps.LatLng(33.340053, -111.859627),
+	mapTypeId: google.maps.MapTypeId.Hybrid,
+	panControl: true,
+	zoomControl: true,
+	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
+	},
+	map = new google.maps.Map(document.getElementById('map'), myOptions);
+	}
+
+	
+//Build the map and get things going
+mapbuild();
