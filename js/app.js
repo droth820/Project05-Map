@@ -1,7 +1,7 @@
 function ViewModel() {
 	var self = this;
 	//this.marker = ko.observable();
-	this.map = ko.observable();
+	//this.map = ko.observable();
 	this.lat = "";
 	this.lng = "";
 	this.appendeddatahtml = "";
