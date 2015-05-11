@@ -11,6 +11,7 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
+	
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
@@ -121,7 +122,11 @@ function viewModel() {
 			}
 		});
 		
-	}	
+	}
+
+
+		
+	
 }
 ko.applyBindings(viewModel);
 
