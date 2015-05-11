@@ -11,7 +11,7 @@ function ViewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	this.searchVenue = ko.observable();
+	//this.searchVenue = ko.observable();
 	
 	//Search for venue based on user query
 	function searchVenue(){
