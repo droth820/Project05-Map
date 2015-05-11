@@ -23,15 +23,8 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
+	this.searchVenue = ko.observable();
 	
-	/*function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}*/
-
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
