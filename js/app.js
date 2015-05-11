@@ -121,7 +121,7 @@ function viewModel() {
 						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
 						infowindow.open(map, marker);
 						console.log("marker added");
-					}
+					};
 				})(marker));
 
 				});
@@ -135,7 +135,7 @@ function viewModel() {
 
 		
 	
-};
+}
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
