@@ -1,7 +1,7 @@
 function ViewModel() {
 	var self = this;
-	self.marker = ko.observable();
-	self.map = ko.observable();
+	self.marker = "";
+	self.map = "";
 	self.lat = "";
 	self.lng = "";
 	self.appendeddatahtml = "";
@@ -11,7 +11,7 @@ function ViewModel() {
 	self.phone = "";
 	self.rating = "";
 	self.address = "";
-	self.searchVenue = ko.observable();
+	self.searchVenue = "";
 	
 	//Search for venue based on user query
 	function searchVenue(){
