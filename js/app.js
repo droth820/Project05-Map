@@ -74,6 +74,7 @@ function viewModel() {
 			$.each( dataobj, function() {	
 				if (this.venue.contact.formattedPhone) {
 					phone = "Phone:"+this.venue.contact.formattedPhone;
+					console.log('phone number');
 				} else {
 					phone = "";
 				}
@@ -90,42 +91,35 @@ function viewModel() {
 					
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
-				var infowindow = new google.maps.InfoWindow();
-
+					
+				// Build markers
 				var markerImage = {
-					url: 'images/ScopePin.png',
-					scaledSize: new google.maps.Size(24, 24),
-					origin: new google.maps.Point(0,0),
-					anchor: new google.maps.Point(24/2, 24)
+				url: 'images/ScopePin.png',
+				scaledSize: new google.maps.Size(24, 24),
+				origin: new google.maps.Point(0,0),
+				anchor: new google.maps.Point(24/2, 24)
 				},
-
 				markerOptions = {
-					icon: markerImage,
-					map: map,
-					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
-					name: this.venue.name,
-					location: this.venue.location.address,
-					optimized: false
+				map: map,
+				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+				title: this.venue.name,
+				animation: google.maps.Animation.DROP,
+				icon: markerImage,
+				optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions);
-				google.maps.event.addListener(marker, 'click', (function(marker){
-					return function() {
-						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
-						infowindow.open(map, marker);
-						console.log("marker added");
-					}
-				})(marker));
-
+				marker = new google.maps.Marker(markerOptions)
 				});
-				
-				
 			}
 		});
-		
 	}
 
-
-		
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}	
 	
 }
 ko.applyBindings(viewModel);
@@ -141,8 +135,7 @@ function mapbuild() {
 	tilt: 45 //Allow user to pan at 45 degree angle when in street view.
 	},
 	map = new google.maps.Map(document.getElementById('map'), myOptions);
-}
-
+	}
 	
 //Build the map and get things going
 mapbuild();
