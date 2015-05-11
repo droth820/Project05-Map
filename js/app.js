@@ -23,7 +23,7 @@ function viewModel() {
 	this.phone = "";
 	this.rating = "";
 	this.address = "";
-	this.searchVenue = "";
+	this.searchVenue() = "";
 	
 	//Search for venue based on user query
 	function searchVenue(){
