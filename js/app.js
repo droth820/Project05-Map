@@ -130,7 +130,7 @@ function ViewModel() {
 	
 }
 
-var viewModel = new viewModel();
+var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
 
 //Rebuild map to display markers retrieved from FS database
