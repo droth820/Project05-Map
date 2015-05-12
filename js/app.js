@@ -51,9 +51,9 @@ function viewModel() {
 				getVenues();
 			}		
 		});
-
+		searchVenue();
 	}
-	searchVenue();
+	
 
 	
 	//Sets user location for gathering venue information based on search query
