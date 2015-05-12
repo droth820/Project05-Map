@@ -49,9 +49,9 @@ function viewModel() {
 				navigator.geolocation.getCurrentPosition(getLocation);
 			} else {
 				getVenues();
-			}
-			return searchVenue();		
+			}		
 		});
+		return searchVenue();
 		
 	}
 	
