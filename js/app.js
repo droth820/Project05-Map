@@ -50,7 +50,8 @@ function viewModel() {
 			} else {
 				getVenues();
 			}		
-		});	
+		});
+		return searchVenue();	
 	}
 	
 
