@@ -1,29 +1,25 @@
-function initialize() {
-	var mapOptions = {
-    center: new google.maps.LatLng(33.340053, -111.859627),
-    zoom: 11,
-    mapTypeId: google.maps.MapTypeId.HYBRID
-  };
-
-	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
 function viewModel() {
 	var self = this;
-	self.marker = ko.observable();
-	self.map = ko.observable();
-	self.lat = "";
-    self.lng = "";
-	self.appendeddatahtml = "";
-	self.arguments = "";
-	self.str = "";
-	self.newstr = "";
-	self.phone = "";
-	self.rating = "";
-	self.address = "";
+	this.marker = ko.observable();
+	this.map = ko.observable();
+	this.lat = "";
+    this.lng = "";
+	this.appendeddatahtml = "";
+	this.arguments = "";
+	this.str = "";
+	this.newstr = "";
+	this.phone = "";
+	this.rating = "";
+	this.address = "";
 	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+
 	//Search for venue based on user query
 	function searchVenue(){
 		$("#query").click(function(){
@@ -31,7 +27,7 @@ function viewModel() {
 		});
 
 		$("#query").blur(function(){
-			if ($(this).val() === "") {
+			if ($(this).val() == "") {
 				$(this).val("Example: Ninja Japanese Restaurant");
 			}
 		
@@ -50,10 +46,10 @@ function viewModel() {
 			} else {
 				getVenues();
 			}		
-		});		
+		});
+
 	}
-	return searchVenue();
-	
+	searchVenue();
 
 	
 	//Sets user location for gathering venue information based on search query
@@ -102,32 +98,52 @@ function viewModel() {
 					
 				appendeddatahtml = '<div class="venue"><h3><span>'+this.venue.name+rating+'</span></h3>'+address+phone+'</p><p><strong>Total Checkins:</strong> '+this.venue.stats.checkinsCount+'</p></div>';
 				$("#venues").append(appendeddatahtml);
+				
+				//Using different method for building markers
+				/*var map = new google.maps.Map(document.getElementById('map'), {
+           			zoom: 11,
+           			center: new google.maps.LatLng(33.340053, -111.859627),
+           			mapTypeId: google.maps.MapTypeId.HYBRID
+          			});*/
 				var infowindow = new google.maps.InfoWindow();
 
-				var markerImage = {
+				var marker = {
 					url: 'images/ScopePin.png',
 					scaledSize: new google.maps.Size(24, 24),
 					origin: new google.maps.Point(0,0),
-					anchor: new google.maps.Point(24/2, 24)
-				},
-
-				markerOptions = {
-					icon: markerImage,
+					anchor: new google.maps.Point(24/2, 24),
 					map: map,
 					position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+					icon: marker,
 					name: this.venue.name,
 					location: this.venue.location.address,
 					optimized: false
 				},
-				marker = new google.maps.Marker(markerOptions);
+				marker = new google.maps.Marker(marker);
 				google.maps.event.addListener(marker, 'click', (function(marker){
 					return function() {
 						infowindow.setContent('<div><h3>'+this.name+'</h3></div>'+'<div><p>'+this.location+'</p></div>');
 						infowindow.open(map, marker);
 						console.log("marker added");
-					};
+					}
 				})(marker));
 
+				// Build markers
+				/*var markerImage = {
+				url: 'images/ScopePin.png',
+				scaledSize: new google.maps.Size(24, 24),
+				origin: new google.maps.Point(0,0),
+				anchor: new google.maps.Point(24/2, 24)
+				},
+				markerOptions = {
+				map: map,
+				position: new google.maps.LatLng(this.venue.location.lat, this.venue.location.lng),
+				title: this.venue.name,
+				animation: google.maps.Animation.DROP,
+				icon: markerImage,
+				optimized: false
+				},
+				marker = new google.maps.Marker(markerOptions)*/
 				});
 				
 				
